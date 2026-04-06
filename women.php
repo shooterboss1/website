@@ -21,6 +21,7 @@ function image_or_placeholder(array $paths, $alt = '') {
 
 // HERO IMAGE
 $heroImage = image_or_placeholder([
+    'images/women.jpeg',
     'images/women-hero.jpg',
     'images/herolarge.jpg',
 ], 'Women\'s Collection');
@@ -35,7 +36,7 @@ $heroImage = image_or_placeholder([
 
 <!-- HERO -->
 <section class="category-hero">
-    <img src="<?php echo $heroImage; ?>" alt="Women's Collection">
+    <img src="<?php echo $heroImage; ?>" alt="Women's Collection" style="width:100%;height:100%;object-fit:cover;object-position:center top;position:absolute;top:0;left:0;">
     <div class="category-hero-content">
         <p>Curated for the Modern Woman</p>
         <h1>Women's Collection</h1>

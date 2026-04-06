@@ -21,6 +21,8 @@ function image_or_placeholder(array $paths, $alt = '') {
 
 // HERO IMAGE
 $heroImage = image_or_placeholder([
+    'images/blazer_suit.jpeg',
+    'images/suits.jpeg',
     'images/men-hero.jpg',
     'images/herolarge.jpg',
 ], 'Men\'s Collection');
@@ -35,10 +37,13 @@ $heroImage = image_or_placeholder([
 
 <!-- HERO -->
 <section class="category-hero">
-    <img src="<?php echo $heroImage; ?>" alt="Men's Collection">
+    <img src="<?php echo $heroImage; ?>" alt="Men's Collection" style="width:100%;height:100%;object-fit:cover;object-position:center top;position:absolute;top:0;left:0;">
     <div class="category-hero-content">
-        <h1>Men's Collection</h1>
         <p>Elevate Your Style</p>
+        <h1>Men's Collection</h1>
+        <div style="margin-top: 40px; opacity: 0; transform: translateY(20px); animation: fadeInUp 1s ease forwards 0.9s;">
+            <a href="#product-list" class="hero-btn" style="border: 1px solid rgba(255,255,255,0.3); backdrop-filter: blur(5px); background: rgba(255,255,255,0.05);">Discover More</a>
+        </div>
     </div>
 </section>
 

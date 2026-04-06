@@ -128,6 +128,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         </div>
         <button type="submit" class="btn-submit">Sign In</button>
     </form>
+
+    <p style="margin-top:24px; font-size:13px; color:#555;">
+        Don't have an account? 
+        <a href="signup.php" style="color:#000; font-weight:700; text-decoration:underline;">Create Account</a>
+    </p>
     
 </div>
 

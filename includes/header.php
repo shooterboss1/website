@@ -59,8 +59,9 @@ if (session_status() === PHP_SESSION_NONE) {
             <!-- Show Logout if logged in -->
             <a href="logout.php" class="nav-icon" title="Sign Out (<?php echo htmlspecialchars($_SESSION['username']); ?>)"><i class="fa fa-sign-out-alt"></i></a>
         <?php else: ?>
-            <!-- Show Sign In if not logged in -->
-            <a href="signin.php" class="nav-icon" title="Sign In"><i class="fa fa-user"></i></a>
+            <!-- Show Sign In and Sign Up if not logged in -->
+            <a href="signin.php" class="nav-icon" title="Sign In"><i class="fa fa-user"></i> Sign In</a>
+            <a href="signup.php" class="nav-icon" title="Create Account" style="background:#000;color:#fff;padding:6px 12px;border-radius:4px;font-size:12px;font-weight:700;letter-spacing:0.5px;text-transform:uppercase;">Create Account</a>
         <?php endif; ?>
         <a href="#" class="nav-icon" id="fav-btn"><i class="fa fa-heart"></i><span id="fav-badge" style="font-size:10px; vertical-align:top; display:none">0</span></a>
         <a href="#" class="nav-icon" id="cart-btn">
