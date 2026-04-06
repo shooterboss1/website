@@ -110,81 +110,43 @@ foreach ($secure_cart as $item) {
 
 $stmt->close();
 $stmt_items->close();
-$conn->close();
 
-// --- SEND EMAIL NOTIFICATIONS ---
+// --- SEND EMAIL NOTIFICATIONS USING EMAIL SERVICE ---
 try {
-    $to = $payer_email;
-    $subject = "Order Confirmation #" . $inserted_order_id . " - " . BRAND_NAME;
+    $emailService = new EmailService();
     
-    // Build Item List HTML
-    $items_html = "";
-    foreach ($cart as $item) {
-        $items_html .= "<tr>
-            <td style='padding:10px; border-bottom:1px solid #eee;'>" . htmlspecialchars($item['title']) . "</td>
-            <td style='padding:10px; border-bottom:1px solid #eee;'>x" . $item['qty'] . "</td>
-            <td style='padding:10px; border-bottom:1px solid #eee;'>$" . number_format($item['price'] * $item['qty'], 2) . "</td>
-        </tr>";
+    // Prepare items array for email
+    $emailItems = [];
+    foreach ($secure_cart as $item) {
+        $emailItems[] = [
+            'product_name' => $item['name'],
+            'quantity' => $item['qty'],
+            'price' => $item['price']
+        ];
     }
-
-    $message = "
-    <html>
-    <head>
-        <title>Order Confirmation</title>
-        <style>
-            body { font-family: Arial, sans-serif; line-height: 1.6; color: #333; }
-            .container { max-width: 600px; margin: 0 auto; padding: 20px; border: 1px solid #eee; }
-            .header { background: black; color: white; padding: 20px; text-align: center; }
-            .order-details { margin: 20px 0; }
-            table { width: 100%; border-collapse: collapse; }
-        </style>
-    </head>
-    <body>
-        <div class='container'>
-            <div class='header'>
-                <h1>Order Confirmed!</h1>
-            </div>
-            <p>Hi " . htmlspecialchars($payer_name) . ",</p>
-            <p>Thank you for your order. We have received it and will begin processing it shortly.</p>
-            
-            <div class='order-details'>
-                <h3>Order #" . $inserted_order_id . "</h3>
-                <p><strong>Total Amount:</strong> $" . number_format($total_amount, 2) . "</p>
-                <p><strong>Date:</strong> " . date('M d, Y') . "</p>
-            </div>
-
-            <h3>Items Ordered:</h3>
-            <table>
-                " . $items_html . "
-            </table>
-
-            <p style='margin-top: 30px;'>Usually ships within 2-3 business days.</p>
-            <p>Thanks,<br>" . BRAND_NAME . " Team</p>
-        </div>
-    </body>
-    </html>
-    ";
-
-    // Headers
-    $headers = "MIME-Version: 1.0" . "\r\n";
-    $headers .= "Content-type:text/html;charset=UTF-8" . "\r\n";
-    $headers .= "From: " . BRAND_NAME . " <" . ADMIN_EMAIL . ">" . "\r\n";
-
-    // Send Customer Email
-    if(!@mail($to, $subject, $message, $headers)) {
-        // Log error if mail fails (optional)
-        // error_log("Mail failed to " . $to);
-    }
-
-    // Send Admin Notification
-    $admin_subject = "New Order #" . $inserted_order_id . " ($" . number_format($total_amount, 2) . ")";
-    $admin_message = "New order received from " . $payer_name . " (" . $payer_email . ").\nTotal: $" . number_format($total_amount, 2);
-    // Simple text email for admin
-    @mail(ADMIN_EMAIL, $admin_subject, $admin_message, "From: System <noreply@nextgenfdm.com>");
-
+    
+    // Send order confirmation to customer
+    $emailService->sendOrderConfirmation(
+        $payer_email,
+        $payer_name,
+        $inserted_order_id,
+        $emailItems,
+        $secure_total_amount
+    );
+    
+    // Send notification to admin
+    $emailService->sendAdminNotification(
+        $inserted_order_id,
+        $payer_email,
+        $payer_name,
+        $secure_total_amount
+    );
 } catch (Exception $e) {
-    // Keep silent on email errors so it doesn't break the JSON response
+    // Log error but don't break the JSON response
+    logSecurityEvent('email_service_error', ['error' => $e->getMessage()]);
 }
+
+$conn->close();
 
 // Return success
 echo json_encode([

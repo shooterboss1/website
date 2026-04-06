@@ -77,14 +77,18 @@ if (isset($_GET['action']) && $_GET['action'] == 'set_condition' && isset($_GET[
 
 // 3. ADD NEW PRODUCT (MATERIAL)
 if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['add_product'])) {
-    $name = $_POST['name'];
-    $price = $_POST['price'];
-    $category = $_POST['category'];
-    $rating = $_POST['rating'];
-    $condition = $_POST['condition'];
-    
-    // Handle Image Upload
-    if(isset($_FILES['product_image']) && $_FILES['product_image']['error'] == 0) {
+    // Validate CSRF token
+    if (!validateCSRFToken($_POST['csrf_token'] ?? '')) {
+        $error = "Security validation failed. Please try again.";
+    } else {
+        $name = sanitizeInput($_POST['name'] ?? '');
+        $price = floatval($_POST['price'] ?? 0);
+        $category = sanitizeInput($_POST['category'] ?? '');
+        $rating = floatval($_POST['rating'] ?? 5.0);
+        $condition = sanitizeInput($_POST['condition'] ?? '');
+        
+        // Handle Image Upload
+        if(isset($_FILES['product_image']) && $_FILES['product_image']['error'] == 0) {
         $upload = uploadImage($_FILES['product_image']);
         if(isset($upload['success'])) {
             $image_path = $upload['success'];
@@ -104,6 +108,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['add_product'])) {
     } else {
         // Fallback for manual path entry if needed (or error)
         $error = "Please upload a product image.";
+    }
     }
 }
 
@@ -371,6 +376,7 @@ $total_products = $conn->query("SELECT COUNT(*) as count FROM products")->fetch_
         <!-- ADD PRODUCT PAGE -->
         <?php if($page == 'add_product'): ?>
             <form action="?page=add_product" method="POST" enctype="multipart/form-data" class="form-grid">
+                <?php echo csrfTokenInput(); ?>
                 
                 <!-- Main Details -->
                 <div class="form-section">

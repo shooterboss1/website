@@ -1,0 +1,44 @@
+# Environment & Secrets
+.env
+.env.local
+.env.*.local
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.DS_Store
+
+# Dependencies
+/vendor/
+composer.lock
+
+# Logs
+error.log
+debug.log
+*.log
+
+# Temporary files
+*.tmp
+/tmp/
+/temp/
+
+# Cache
+/cache/
+.htaccess.bak
+
+# Database
+*.sql
+*.sqlite
+*.db
+
+# Build artifacts
+/dist/
+/build/
+
+# Node (if using npm in future)
+node_modules/
+package-lock.json
+yarn.lock

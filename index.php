@@ -1,9 +1,6 @@
 <?php include 'includes/header.php'; ?>
 
 <?php
-// Enable debugging (disable in production)
-ini_set('display_errors', '1');
-error_reporting(E_ALL);
 require_once 'config.php';
 
 function image_or_placeholder(array $paths, $alt = '') {
@@ -38,23 +35,7 @@ $logo = image_or_placeholder([
 // Hero/Logo definitions kept static for now
 // PRODUCTS - Removed hardcoded arrays as we now fetch from DB
 
-// added: debug comment and optional visible debug panel
-// usage of product vars in debug removed
-$resolved_debug = sprintf(
-	'heroSmall=%s heroLarge=%s logo=%s',
-	$heroSmall, $heroLarge, $logo
-);
-echo "<!-- resolved images: " . htmlspecialchars($resolved_debug, ENT_QUOTES) . " -->";
 
-// show visible debug panel when ?debug=1
-if (!empty($_GET['debug'])) {
-	?>
-	<style>.debug-panel{background:#111;color:#fff;padding:10px;font-family:monospace;font-size:13px}</style>
-	<div class="debug-panel" role="note" aria-live="polite">
-		Resolved images: <?php echo htmlspecialchars($resolved_debug, ENT_QUOTES); ?>
-	</div>
-	<?php
-}
 
 // helper to detect data-uri placeholders
 function is_data_uri($src) {

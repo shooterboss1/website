@@ -5,8 +5,12 @@ require_once 'config.php';
 $error = '';
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    $email = trim($_POST['email']);
-    $password = $_POST['password'];
+    // Validate CSRF token
+    if (!validateCSRFToken($_POST['csrf_token'] ?? '')) {
+        $error = "Security validation failed. Please try again.";
+    } else {
+        $email = sanitizeInput($_POST['email'] ?? '');
+        $password = $_POST['password'] ?? '';
 
     if (empty($email) || empty($password)) {
         $error = "Please fill in all fields.";
@@ -118,6 +122,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <?php endif; ?>
 
     <form method="POST" action="">
+        <?php echo csrfTokenInput(); ?>
         <div class="form-group">
             <label>Email or Username</label>
             <input type="text" name="email" required>
