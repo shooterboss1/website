@@ -11,7 +11,7 @@ $category = 'men'; // Use 'men' or 'women'
 $image = 'images/men_coat.jpg'; // Ensure this image exists
 $rating = 5.0;
 $condition = 'new';
-$seller = 'What's Real Shall Prosper';
+$seller = "What's Real Shall Prosper";
 
 $stmt = $conn->prepare("INSERT INTO products (name, price, category, image, rating, product_condition, seller_name) VALUES (?, ?, ?, ?, ?, ?, ?)");
 $stmt->bind_param("sdssdss", $name, $price, $category, $image, $rating, $condition, $seller);

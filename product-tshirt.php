@@ -19,7 +19,7 @@ $img = image_or_placeholder([
 	'images/tshirt.png',
 	'images/tshirt.jpeg',
 	'images/tee.jpg'
-], 'What's Real Shall Prosper T‑Shirt');
+], "What's Real Shall Prosper T‑Shirt");
 ?>
 
 <section class="page">

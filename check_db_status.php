@@ -2,7 +2,7 @@
 require_once 'config.php';
 
 if ($conn) {
-    echo "Successfully connected to the database '" . $dbname . "' on '" . $servername . "'.\n";
+    echo "Successfully connected to the database '" . DB_NAME . "' on '" . DB_SERVER . "'.\n";
     
     // Check if tables exist
     $tables = ['products', 'users', 'orders', 'sales_data'];

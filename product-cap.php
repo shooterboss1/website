@@ -18,7 +18,7 @@ $img = image_or_placeholder([
 	'images/cap.jpg',
 	'images/cap.png',
 	'images/hat.jpg'
-], 'What's Real Shall Prosper Cap');
+], "What's Real Shall Prosper Cap");
 ?>
 
 <section class="page">
