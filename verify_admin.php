@@ -6,7 +6,7 @@ $stmt->bind_param("s", $email);
 $stmt->execute();
 $result = $stmt->get_result();
 if ($row = $result->fetch_assoc()) {
-    echo "SUCCESS: Admin logic verified for NEXTGEN FDM.";
+    echo "SUCCESS: Admin logic verified for What's Real Shall Prosper.";
     echo "Username: " . $row['username'] . "\n";
     echo "Email: " . $row['email'] . "\n";
     echo "Role: " . $row['role'] . "\n";
@@ -16,3 +16,4 @@ if ($row = $result->fetch_assoc()) {
 $stmt->close();
 $conn->close();
 ?>
+

@@ -19,7 +19,7 @@ $img = image_or_placeholder([
 	'images/tshirt.png',
 	'images/tshirt.jpeg',
 	'images/tee.jpg'
-], 'NEXTGEN FDM T‑Shirt');
+], 'What's Real Shall Prosper T‑Shirt');
 ?>
 
 <section class="page">
@@ -34,7 +34,7 @@ $img = image_or_placeholder([
 			<h1>T‑Shirt</h1>
 			<p class="price" style="font-weight:700;font-size:1.2rem;">$29.99</p>
 
-			<p>Classic cut cotton T‑shirt with the NEXTGEN FDM logo. Comfortable, durable, and designed for everyday wear.</p>
+			<p>Classic cut cotton T‑shirt with the What's Real Shall Prosper logo. Comfortable, durable, and designed for everyday wear.</p>
 
 			<form action="cart.php" method="post" style="margin-top:1rem;">
 				<input type="hidden" name="product" value="tshirt">
@@ -62,3 +62,4 @@ $img = image_or_placeholder([
 </section>
 
 <?php include 'includes/footer.php'; ?>
+

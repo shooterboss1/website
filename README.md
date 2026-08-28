@@ -1,4 +1,4 @@
-# 👕 NEXTGEN FDM Clothing Brand Website
+# 👕 What's Real Shall Prosper Clothing Brand Website
 
 A fully functional, premium e-commerce website built with PHP, MySQL, JavaScript, and CSS.
 
@@ -25,7 +25,7 @@ A fully functional, premium e-commerce website built with PHP, MySQL, JavaScript
 - **Order Processing**: Database recording of customer details and items.
 
 ### 🎨 Design & UI
-- **Premium Aesthetic**: Minimalist, "NEXTGEN FDM" design with modern typography.
+- **Premium Aesthetic**: Minimalist, "What's Real Shall Prosper" design with modern typography.
 - **Responsive**: Fully optimized for mobile, tablet, and desktop.
 - **Animations**: Smooth fade-ins, hover effects, and interactive elements.
 - **Dark Mode Areas**: Specialized "Unreleased" section with dark theme.
@@ -95,3 +95,4 @@ If you move this to a live server (e.g., GoDaddy, AWS, etc.):
 
 ---
 **Developed by:** User & AI Pair Programmer
+

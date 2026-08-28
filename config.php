@@ -57,7 +57,7 @@ define('MAIL_FROM_ADDRESS', $_ENV['MAIL_FROM_ADDRESS'] ?? 'noreply@nextgenfdm.co
 
 // Business Info for Emails
 define('ADMIN_EMAIL', $_ENV['ADMIN_EMAIL'] ?? 'admin@nextgenfdm.com');
-define('BRAND_NAME', $_ENV['BRAND_NAME'] ?? 'NEXTGEN FDM');
+define('BRAND_NAME', $_ENV['BRAND_NAME'] ?? "What's Real Shall Prosper");
 
 // Create Database Connection
 $conn = new mysqli(DB_SERVER, DB_USERNAME, DB_PASSWORD, DB_NAME);
@@ -81,3 +81,4 @@ require_once __DIR__ . '/includes/security.php';
 // Load email service
 require_once __DIR__ . '/includes/EmailService.php';
 ?>
+

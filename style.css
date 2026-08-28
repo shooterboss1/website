@@ -1,5 +1,5 @@
 /* ------------------------------
-   NEXTGEN FDM - PREMIUM THEME
+   What's Real Shall Prosper - PREMIUM THEME
 ------------------------------ */
 @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600&family=Playfair+Display:ital,wght@0,400;0,600;1,400&display=swap');
 
@@ -63,8 +63,8 @@ img {
 
 /* LOGO */
 .logo img {
-  height: 48px;
-  /* Increased for the detailed NEXTGEN FDM logo */
+  height: 80px;
+  /* Increased for the detailed What's Real Shall Prosper logo */
   width: auto;
   filter: contrast(1.05);
 }

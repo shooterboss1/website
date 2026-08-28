@@ -2,7 +2,7 @@
 
 ## ✅ What's Been Set Up
 
-Your NEXTGEN FDM clothing brand website now has **full PayPal payment integration**! Here's what's working:
+Your What's Real Shall Prosper clothing brand website now has **full PayPal payment integration**! Here's what's working:
 
 ### 🛒 **Shopping & Checkout Flow**
 1. ✅ Customers can browse products
@@ -169,3 +169,4 @@ You can:
 **Next Step**: Follow PAYPAL_SETUP.md
 
 🎊 **Congratulations! Your store is ready to accept payments!** 🎊
+

@@ -1,0 +1,12 @@
+# Disable directory listing to prevent users from seeing all files in a folder
+Options -Indexes
+
+# Protect the .env file and other hidden files (like .git or .htaccess itself)
+<FilesMatch "^\.">
+    Require all denied
+</FilesMatch>
+
+# Specifically block access to markdown documentation and internal scripts if needed
+<FilesMatch "(?i)\.(md|sql|log)$">
+    Require all denied
+</FilesMatch>

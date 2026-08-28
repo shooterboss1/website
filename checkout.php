@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>NEXTGEN FDM Admin Portal</title>
+    <title>What's Real Shall Prosper Admin Portal</title>
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <!-- Stripe.js -->
@@ -281,14 +281,14 @@
 
 <header class="navbar">
     <a href="index.php" class="logo">
-        <img src="images/logo.jpeg" alt="NEXTGEN FDM">
+        <img src="images/logo.jpeg" alt="What's Real Shall Prosper">
     </a>
 
     <div class="nav-links">
         <a href="index.php">Home</a>
         <a href="about.php">About</a>
         <a href="contact.php">Contact</a>
-            <span class="brand-text">NEXTGEN FDM</span>
+            <span class="brand-text">What's Real Shall Prosper</span>
         <a href="index.php?cat=men">Men</a>
         <a href="index.php?cat=women">Women</a>
     </div>
@@ -718,8 +718,9 @@
 </script>
 
 <footer>
-    <p>© 2025 NEXTGEN FDM. All rights reserved.</p>
+    <p>© 2025 What's Real Shall Prosper. All rights reserved.</p>
 </footer>
 
 </body>
 </html>
+

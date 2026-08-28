@@ -1,4 +1,4 @@
-# PayPal Integration Setup Guide for NEXTGEN FDM
+# PayPal Integration Setup Guide for What's Real Shall Prosper
 
 ## Overview
 Your website now has PayPal payment integration! When customers purchase items, payments will go directly to your PayPal account: **@nextgenfdm_payments**
@@ -15,7 +15,7 @@ Your website now has PayPal payment integration! When customers purchase items, 
    - Click on "Dashboard" in the top menu
    - Go to "My Apps & Credentials"
    - Under "REST API apps", click "Create App"
-   - Give it a name (e.g., "NEXTGEN FDM Store")
+   - Give it a name (e.g., "What's Real Shall Prosper Store")
    - Click "Create App"
 
 3. **Get Your Client ID**
@@ -150,3 +150,4 @@ For developer docs: https://developer.paypal.com/docs/
 
 **Your PayPal Account:** @nextgenfdm_payments  
 **Ready to receive payments!** 🚀
+

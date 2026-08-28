@@ -1,5 +1,5 @@
 <footer>
-    <p>© 2025 NEXTGEN FDM. All rights reserved.</p>
+    <p>© 2025 What's Real Shall Prosper. All rights reserved.</p>
 </footer>
 
 <?php include __DIR__ . '/chatbot.php'; ?>
@@ -46,3 +46,4 @@
 
 </body>
 </html>
+

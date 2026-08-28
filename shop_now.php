@@ -49,10 +49,10 @@ $totalProducts = $totalRow['total'];
 
 <!-- HERO -->
 <section class="shop-hero">
-    <img src="<?php echo $heroImage; ?>" alt="Shop All Products">
-    <div class="shop-hero-content">
-        <h1>Shop All</h1>
-        <p>Discover Our Complete Collection - <?php echo $totalProducts; ?> Products Available</p>
+    <img src="<?php echo $heroImage; ?>?v=2.0" alt="Shop All Products">
+    <div class="shop-hero-content" style="color: #000; text-shadow: none;">
+        <h1 style="color: #000;">Shop All</h1>
+        <p style="color: #333; font-weight: 600;">Discover Our Complete Collection - <?php echo $totalProducts; ?> Products Available</p>
     </div>
 </section>
 

@@ -18,7 +18,7 @@ $img = image_or_placeholder([
 	'images/cap.jpg',
 	'images/cap.png',
 	'images/hat.jpg'
-], 'NEXTGEN FDM Cap');
+], 'What's Real Shall Prosper Cap');
 ?>
 
 <section class="page">
@@ -53,3 +53,4 @@ $img = image_or_placeholder([
 </section>
 
 <?php include 'includes/footer.php'; ?>
+

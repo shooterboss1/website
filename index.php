@@ -45,11 +45,11 @@ function is_data_uri($src) {
 
 <!-- HERO -->
 <section class="hero">
-    <img src="images/herolarge.jpg" alt="Hero image">
+    <img src="images/herolarge.jpg?v=2.0" alt="Hero image">
     <div class="hero-content">
-        <img src="images/logo.jpeg?v=1.2" alt="NEXTGEN FDM" class="hero-logo">
-        <h1 class="hero-title">NEXTGEN FDM</h1>
-        <a href="shop_now.php" class="hero-btn">Shop Now</a>
+        <!-- <img src="images/logo.jpeg?v=1.3" alt="What's Real Shall Prosper" class="hero-logo"> -->
+        <!-- <h1 class="hero-title">What's Real Shall Prosper</h1> -->
+        <a href="shop_now.php" class="hero-btn" style="background:#000; color:#fff; border:2px solid #000; margin-top:250px;">Shop Now</a>
     </div>
 </section>
 
@@ -57,7 +57,7 @@ function is_data_uri($src) {
 <section class="video-campaign">
     <!-- Placeholder video source. Replace 'videos/campaign.mp4' with your actual video file. -->
     <video autoplay muted loop playsinline poster="images/herolarge.jpg">
-        <source src="videos/campaign.mp4" type="video/mp4">
+        <source src="videos/promo.mp4?v=1.1" type="video/mp4">
         Your browser does not support the video tag.
     </video>
     <div class="campaign-content">
@@ -170,3 +170,4 @@ function is_data_uri($src) {
 
 
 <?php include 'includes/footer.php'; ?>
+

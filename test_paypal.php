@@ -141,5 +141,6 @@ echo "</ul>";
 $conn->close();
 
 echo "<hr style='margin: 40px 0;'>";
-echo "<p style='text-align: center; color: #666;'>PayPal Integration Test Complete • NEXTGEN FDM Clothing Brand</p>";
+echo "<p style='text-align: center; color: #666;'>PayPal Integration Test Complete • What's Real Shall Prosper Clothing Brand</p>";
 ?>
+

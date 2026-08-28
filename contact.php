@@ -34,7 +34,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 		if (empty($errors)) {
 			// Optionally send email here (commented out)
 			// $to = 'info@nextgenfdm.com';
-			// $subject = 'Contact form message from NEXTGEN FDM';
+			// $subject = 'Contact form message from What's Real Shall Prosper';
 			// $body = "Name: $name\nEmail: $email\n\n$message";
 			// $headers = 'From: ' . $email . "\r\n" . 'Reply-To: ' . $email;
 			// mail($to, $subject, $body, $headers);
@@ -602,3 +602,4 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 </div>
 
 <?php include 'includes/footer.php'; ?>
+

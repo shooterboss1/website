@@ -36,10 +36,19 @@ function generateCSRFToken() {
  * Retrieves token from session or generates new one
  */
 function getCSRFToken() {
-    if (empty($_SESSION['csrf_token'])) {
-        $_SESSION['csrf_token'] = generateCSRFToken();
+    if (empty($_SESSION['csrf_tokens'])) {
+        $_SESSION['csrf_tokens'] = [];
     }
-    return $_SESSION['csrf_token'];
+    
+    // Generate a new token if none exist or all are expired
+    if (empty($_SESSION['csrf_tokens'])) {
+        $token = generateCSRFToken();
+        return $token;
+    }
+    
+    // Return the most recent valid token
+    $tokens = array_keys($_SESSION['csrf_tokens']);
+    return $tokens[count($tokens) - 1];
 }
 
 /**

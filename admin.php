@@ -126,7 +126,7 @@ $total_products = $conn->query("SELECT COUNT(*) as count FROM products")->fetch_
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>NEXTGEN FDM Admin Portal</title>
+    <title>What's Real Shall Prosper Admin Portal</title>
     <!-- FontAwesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <!-- Admin Style -->
@@ -141,7 +141,7 @@ $total_products = $conn->query("SELECT COUNT(*) as count FROM products")->fetch_
     <div class="admin-sidebar">
         <div class="brand">
             <i class="fas fa-layer-group" style="font-size: 20px;"></i>
-            <span class="brand-text">NEXTGEN FDM</span>
+            <span class="brand-text">What's Real Shall Prosper</span>
         </div>
         
         <nav class="admin-nav">
@@ -447,3 +447,4 @@ $total_products = $conn->query("SELECT COUNT(*) as count FROM products")->fetch_
 
 </body>
 </html>
+

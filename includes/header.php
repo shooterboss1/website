@@ -8,7 +8,7 @@ if (session_status() === PHP_SESSION_NONE) {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>NEXTGEN FDM - Premium Clothing</title>
+    <title>What's Real Shall Prosper - Premium Clothing</title>
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="chatbot.css">
     <!-- FontAwesome for icons (optional, could use SVGs) -->
@@ -29,7 +29,7 @@ if (session_status() === PHP_SESSION_NONE) {
     <?php endif; ?>
 
     <a href="index.php" class="logo">
-        <img src="images/logo.jpeg?v=1.2" alt="NEXTGEN FDM">
+        <img src="images/logo.jpeg?v=1.3" alt="What's Real Shall Prosper">
     </a>
 
     <div class="nav-links">
@@ -70,3 +70,4 @@ if (session_status() === PHP_SESSION_NONE) {
         </a>
     </div>
 </header>
+

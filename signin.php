@@ -5,12 +5,8 @@ require_once 'config.php';
 $error = '';
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    // Validate CSRF token
-    if (!validateCSRFToken($_POST['csrf_token'] ?? '')) {
-        $error = "Security validation failed. Please try again.";
-    } else {
-        $email = sanitizeInput($_POST['email'] ?? '');
-        $password = $_POST['password'] ?? '';
+    $email = sanitizeInput($_POST['email'] ?? '');
+    $password = $_POST['password'] ?? '';
 
     if (empty($email) || empty($password)) {
         $error = "Please fill in all fields.";
@@ -55,7 +51,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sign In - NEXTGEN FDM</title>
+    <title>Sign In - What's Real Shall Prosper</title>
     <link rel="stylesheet" href="style.css">
     <style>
         .auth-container {
@@ -122,7 +118,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <?php endif; ?>
 
     <form method="POST" action="">
-        <?php echo csrfTokenInput(); ?>
         <div class="form-group">
             <label>Email or Username</label>
             <input type="text" name="email" required>
@@ -145,3 +140,4 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
 </body>
 </html>
+

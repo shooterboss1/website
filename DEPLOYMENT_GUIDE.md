@@ -1,6 +1,6 @@
 # 🚀 WORLDWIDE LAUNCH GUIDE
 
-This guide walks you through the steps to take your **NEXTGEN FDM** website from your computer (Localhost) to the internet (Production).
+This guide walks you through the steps to take your **What's Real Shall Prosper** website from your computer (Localhost) to the internet (Production).
 
 ---
 
@@ -84,3 +84,4 @@ Open `config.php` locally. You will see a "Live Production Settings" section. Yo
 
 ## 🎉 CONGRATULATIONS!
 Your brand is now live for the world to see. 
+

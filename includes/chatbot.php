@@ -7,7 +7,7 @@
         <div class="chatbot-header">
             <div class="chatbot-title">
                 <i class="fa fa-robot"></i>
-                <span>NEXTGEN FDM Assistant</span>
+                <span>What's Real Shall Prosper Assistant</span>
             </div>
             <button id="chatbot-close" class="chatbot-close">&times;</button>
         </div>
@@ -22,3 +22,4 @@
         </div>
     </div>
 </div>
+

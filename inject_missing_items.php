@@ -1,7 +1,7 @@
 <?php
 require_once 'config.php';
 
-echo "<h2>NEXTGEN FDM Item Recovery</h2>";
+echo "<h2>What's Real Shall Prosper Item Recovery</h2>";
 
 $items = [
     [
@@ -38,7 +38,7 @@ foreach ($items as $item) {
     $result = $check->get_result();
 
     if ($result->num_rows == 0) {
-        $stmt = $conn->prepare("INSERT INTO products (name, price, category, image, rating, product_condition, seller_name) VALUES (?, ?, ?, ?, ?, ?, 'NEXTGEN FDM')");
+        $stmt = $conn->prepare("INSERT INTO products (name, price, category, image, rating, product_condition, seller_name) VALUES (?, ?, ?, ?, ?, ?, 'What's Real Shall Prosper')");
         $stmt->bind_param("sdssis", $item['name'], $item['price'], $item['category'], $item['image'], $item['rating'], $item['condition']);
         
         if ($stmt->execute()) {
@@ -63,3 +63,4 @@ echo "<br><strong>Done!</strong> These items are now live. <a href='index.php'>G
 
 $conn->close();
 ?>
+
