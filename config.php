@@ -83,9 +83,34 @@ function loadEnv($filePath = __DIR__ . '/.env') {
 // Load environment variables from .env file if available
 loadEnv();
 
-// Determine environment
-$app_env = getEnvVar('APP_ENV', 'production');
-$is_local = ($app_env === 'development');
+// Auto-parse connection URL if provided (e.g. Aiven, Render, Railway, Heroku)
+$db_url = getEnvVar(['DATABASE_URL', 'MYSQL_URL', 'CLEARDB_DATABASE_URL', 'AIVEN_DB_URL']);
+if (!empty($db_url)) {
+    $parsed = parse_url($db_url);
+    if ($parsed && isset($parsed['host'])) {
+        if (getenv('DB_SERVER') === false && !isset($_ENV['DB_SERVER'])) {
+            putenv("DB_SERVER=" . $parsed['host']);
+            $_ENV['DB_SERVER'] = $parsed['host'];
+        }
+        if (getenv('DB_USERNAME') === false && !isset($_ENV['DB_USERNAME'])) {
+            putenv("DB_USERNAME=" . ($parsed['user'] ?? 'root'));
+            $_ENV['DB_USERNAME'] = $parsed['user'] ?? 'root';
+        }
+        if (getenv('DB_PASSWORD') === false && !isset($_ENV['DB_PASSWORD'])) {
+            putenv("DB_PASSWORD=" . ($parsed['pass'] ?? ''));
+            $_ENV['DB_PASSWORD'] = $parsed['pass'] ?? '';
+        }
+        if (getenv('DB_NAME') === false && !isset($_ENV['DB_NAME'])) {
+            $dbName = isset($parsed['path']) ? ltrim($parsed['path'], '/') : 'clothing';
+            putenv("DB_NAME=" . $dbName);
+            $_ENV['DB_NAME'] = $dbName;
+        }
+        if (getenv('DB_PORT') === false && !isset($_ENV['DB_PORT']) && isset($parsed['port'])) {
+            putenv("DB_PORT=" . $parsed['port']);
+            $_ENV['DB_PORT'] = (string)$parsed['port'];
+        }
+    }
+}
 
 // Database Configuration
 define('DB_SERVER', getEnvVar(['DB_SERVER', 'DB_HOST', 'MYSQLHOST'], 'localhost'));
@@ -116,7 +141,22 @@ define('BRAND_NAME', getEnvVar('BRAND_NAME', "What's Real Shall Prosper"));
 
 // Create Database Connection
 $port = (int) DB_PORT;
-$conn = @new mysqli(DB_SERVER, DB_USERNAME, DB_PASSWORD, DB_NAME, $port);
+$conn = mysqli_init();
+
+// Detect if SSL connection is required (Aiven MySQL requires SSL, or DB_SSL=true)
+$db_ssl = strtolower(getEnvVar(['DB_SSL', 'MYSQL_SSL'], 'false'));
+$is_aiven = (strpos(DB_SERVER, 'aivencloud.com') !== false);
+$has_ssl_flag = (!empty($db_url) && (strpos(strtolower($db_url), 'ssl-mode=required') !== false || strpos(strtolower($db_url), 'ssl=true') !== false));
+$use_ssl = ($db_ssl === 'true' || $db_ssl === '1' || $is_aiven || $has_ssl_flag);
+
+if ($use_ssl) {
+    $ca_file = getEnvVar(['MYSQL_ATTR_SSL_CA', 'MYSQL_SSL_CA'], null);
+    $conn->options(MYSQLI_OPT_SSL_VERIFY_SERVER_CERT, false);
+    $conn->ssl_set(NULL, NULL, !empty($ca_file) ? $ca_file : NULL, NULL, NULL);
+    @$conn->real_connect(DB_SERVER, DB_USERNAME, DB_PASSWORD, DB_NAME, $port, NULL, MYSQLI_CLIENT_SSL);
+} else {
+    @$conn->real_connect(DB_SERVER, DB_USERNAME, DB_PASSWORD, DB_NAME, $port);
+}
 
 // Check connection
 if ($conn->connect_error) {
@@ -124,7 +164,7 @@ if ($conn->connect_error) {
         die("Connection failed: " . $conn->connect_error);
     } else {
         error_log("Database Connection Error: " . $conn->connect_error);
-        die("Database connection failed. Please ensure database credentials are configured in your environment variables.");
+        die("Database connection failed: " . $conn->connect_error);
     }
 }
 
